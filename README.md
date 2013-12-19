@@ -1,4 +1,4 @@
-#Photoshop Syg Showed Folder Export - showed layer folder export to PNG
+#Photoshop Syg Showed Folder Export - 現在表示されているレイヤーフォルダーを、フォルダーごとに画像保存する。
 
 ##NAME
 PS SygFolderExport
@@ -16,12 +16,14 @@ Photoshop CS3
 
 表示されているレイヤーフォルダーをPNG形式に書き出すPhotoshopスクリプトです。
 
+複数のフォルダー表示させた場合は、ひとつずつ保存していきます。
+
 ##DESCRIPTION
 
 書き出したいレイヤーフォルダーを表示させた状態で、
 Photoshopの［ファイル＞スクリプト＞参照］から本スクリプトを呼び出します。
 
-### パラメータ
+##PARAMETER
 
 書き出し場所は初期状態では「c:\」になっていますので、
 スクリプトを書き換えてご利用ください。
