@@ -1,99 +1,99 @@
 /*
-ƒgƒbƒv‚ÌƒŒƒCƒ„[ƒtƒHƒ‹ƒ_iƒŒƒCƒ„[ƒZƒbƒgj‚²‚Æ‚É‰æ‘œ‚ð•Û‘¶‚·‚é
+ãƒˆãƒƒãƒ—ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ•ã‚©ãƒ«ãƒ€ï¼ˆãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚»ãƒƒãƒˆï¼‰ã”ã¨ã«ç”»åƒã‚’ä¿å­˜ã™ã‚‹
 
-E•Û‘¶ƒtƒ@ƒCƒ‹–¼‚ÍuŒ³ƒtƒ@ƒCƒ‹–¼_ƒŒƒCƒ„[ƒtƒHƒ‹ƒ_–¼v‚Æ‚È‚éB
-E“¯‚¶ƒtƒ@ƒCƒ‹–¼‚ª‘¶Ý‚·‚éê‡‚Íã‘‚«‚³‚ê‚éB
-E•s‰ÂŽ‹ó‘Ô‚ÌƒtƒHƒ‹ƒ_‚Í•Û‘¶‚³‚ê‚È‚¢B
+ãƒ»ä¿å­˜ãƒ•ã‚¡ã‚¤ãƒ«åã¯ã€Œå…ƒãƒ•ã‚¡ã‚¤ãƒ«å_ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒ•ã‚©ãƒ«ãƒ€åã€ã¨ãªã‚‹ã€‚
+ãƒ»åŒã˜ãƒ•ã‚¡ã‚¤ãƒ«åãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ä¸Šæ›¸ãã•ã‚Œã‚‹ã€‚
+ãƒ»ä¸å¯è¦–çŠ¶æ…‹ã®ãƒ•ã‚©ãƒ«ãƒ€ã¯ä¿å­˜ã•ã‚Œãªã„ã€‚
 
-EƒtƒHƒ‹ƒ_“à‚ÌƒŒƒCƒ„[AƒtƒHƒ‹ƒ_‚Ìó‘Ô‚Í•ÏX‚³‚ê‚È‚¢B
-E‘æˆêŠK‘w‚É•’Ê‚ÌƒŒƒCƒ„[‚ª•\Ž¦‚³‚ê‚Ä‚¢‚éê‡‚ÍA‚»‚ê‚à•\Ž¦‚µ‚½‚Ü‚Ü•Û‘¶‚³‚ê‚éB
+ãƒ»ãƒ•ã‚©ãƒ«ãƒ€å†…ã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ã€ãƒ•ã‚©ãƒ«ãƒ€ã®çŠ¶æ…‹ã¯å¤‰æ›´ã•ã‚Œãªã„ã€‚
+ãƒ»ç¬¬ä¸€éšŽå±¤ã«æ™®é€šã®ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ã‚‹å ´åˆã¯ã€ãã‚Œã‚‚è¡¨ç¤ºã—ãŸã¾ã¾ä¿å­˜ã•ã‚Œã‚‹ã€‚
 
-EŠeƒtƒH[ƒ}ƒbƒg‚Ì•Û‘¶ƒIƒvƒVƒ‡ƒ“‚ÍusetSaveOption()v‚Ås‚Á‚Ä‚¢‚é‚Ì‚ÅA
-@Ú×‚ÈŽw’è‚ð‚µ‚½‚¢ê‡‚Í‚»‚±‚ÅB
+ãƒ»å„ãƒ•ã‚©ãƒ¼ãƒžãƒƒãƒˆã®ä¿å­˜ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯ã€ŒsetSaveOption()ã€ã§è¡Œã£ã¦ã„ã‚‹ã®ã§ã€
+ã€€è©³ç´°ãªæŒ‡å®šã‚’ã—ãŸã„å ´åˆã¯ãã“ã§ã€‚
 
 */
 
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
-// ¡•ÏX€–Ú
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
+// â– å¤‰æ›´é …ç›®
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
 
-// ¡o—Íæ
-// Windows‚Æ Macintosh‚Å‹Lq•ûŽ®‚ªˆá‚¤‚Ì‚ÅAÚ×‚Í‰º‹L‚ðŽQÆB
+// â– å‡ºåŠ›å…ˆ
+// Windowsã¨ Macintoshã§è¨˜è¿°æ–¹å¼ãŒé•ã†ã®ã§ã€è©³ç´°ã¯ä¸‹è¨˜ã‚’å‚ç…§ã€‚
 // http://www.openspc2.org/book/PhotoshopCS/intro/009/index.html
-var OUTPUT_DIR = 'C:\\Users\\dada\\';
+var OUTPUT_DIR = 'C:\\';
 
-// ¡–³Ž‹‚·‚éƒtƒHƒ‹ƒ_–¼‚ÌÚ“ªŽ«
+// â– ç„¡è¦–ã™ã‚‹ãƒ•ã‚©ãƒ«ãƒ€åã®æŽ¥é ­è¾ž
 var THROW_NAME = '<>';
 
-// ¡•Û‘¶Œ`Ž®
-// PSD PNG JPG BMP ‚©‚ç‘I‚ÔB
+// â– ä¿å­˜å½¢å¼
+// PSD PNG JPG BMP ã‹ã‚‰é¸ã¶ã€‚
 var OUTPUT_FORMAT = "PNG";
 
 
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
-// ¡ƒOƒ[ƒoƒ‹•Ï”E’è”
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
+// â– ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°ãƒ»å®šæ•°
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
 
 var __doc = activeDocument;
-var __setList = new Array();	// ‘æˆêŠK‘wƒtƒHƒ‹ƒ_ƒŠƒXƒg
+var __setList = new Array();	// ç¬¬ä¸€éšŽå±¤ãƒ•ã‚©ãƒ«ãƒ€ãƒªã‚¹ãƒˆ
 var __baseName;
 
-// ‘‚«o‚µŠJŽn
+// æ›¸ãå‡ºã—é–‹å§‹
 startOutput();
 
 
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
-// ¡ŠÖ”
-// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
+// â– é–¢æ•°
+// â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– â– 
 
 ////////////////////////////////////////////////////////////////
-// ‘‚«o‚µŠJŽn
+// æ›¸ãå‡ºã—é–‹å§‹
 function startOutput(){
 	var i;
 
-	preferences.rulerUnits = Units.PIXELS;	// ’PˆÊ‚ðƒsƒNƒZƒ‹‚É
-	__baseName = __doc.name.split('.')[0];	// ƒx[ƒXƒtƒ@ƒCƒ‹–¼Žæ“¾
-	makeSetList();							// ƒtƒHƒ‹ƒ_ˆê——‚ðì¬
+	preferences.rulerUnits = Units.PIXELS;	// å˜ä½ã‚’ãƒ”ã‚¯ã‚»ãƒ«ã«
+	__baseName = __doc.name.split('.')[0];	// ãƒ™ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«åå–å¾—
+	makeSetList();							// ãƒ•ã‚©ãƒ«ãƒ€ä¸€è¦§ã‚’ä½œæˆ
 
-	// ƒZƒbƒgˆê——‚©‚çˆêŒÂ‚¸‚Â‘‚«o‚·B
+	// ã‚»ãƒƒãƒˆä¸€è¦§ã‹ã‚‰ä¸€å€‹ãšã¤æ›¸ãå‡ºã™ã€‚
 	for( i=0; i<__setList.length; i++ ){
 		outputSet( __setList[i] );
 	}
-	// ‰ÂŽ‹ó‘Ô‚É–ß‚·
+	// å¯è¦–çŠ¶æ…‹ã«æˆ»ã™
 	for( i=0; i<__setList.length; i++ ){
 		__setList[i].visible = true;
 	}
 }
 ////////////////////////////////////////////////////////////////
-// ƒZƒbƒgˆê——‚ðì¬
+// ã‚»ãƒƒãƒˆä¸€è¦§ã‚’ä½œæˆ
 function makeSetList(){
 	var i;
 	var setName;
 
 	for( i=0; i<__doc.layerSets.length; i++ ){
-		// •s‰ÂŽ‹ó‘Ô‚É‚È‚Á‚Ä‚¢‚é‚à‚Ì‚Í–³Ž‹
+		// ä¸å¯è¦–çŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹ã‚‚ã®ã¯ç„¡è¦–
 		if( __doc.layerSets[i].visible == false ) continue;
         
-        // –³Ž‹Ú“ªŽ«‚Ì•t‚¢‚Ä‚¢‚é•¨‚Í–³Ž‹
+        // ç„¡è¦–æŽ¥é ­è¾žã®ä»˜ã„ã¦ã„ã‚‹ç‰©ã¯ç„¡è¦–
         if( __doc.layerSets[i].name.indexOf(THROW_NAME) == 0 ) continue;
 
 		__setList.push( __doc.layerSets[i] );
-		__doc.layerSets[i].visible = false;	// •s‰ÂŽ‹‚É‚·‚é
+		__doc.layerSets[i].visible = false;	// ä¸å¯è¦–ã«ã™ã‚‹
 	}
 }
 ////////////////////////////////////////////////////////////////
-// ƒZƒbƒg’PˆÊ‚Å·•ª‚ðo—Í
+// ã‚»ãƒƒãƒˆå˜ä½ã§å·®åˆ†ã‚’å‡ºåŠ›
 function outputSet( setObj ){
 	var fileName = OUTPUT_DIR +__baseName + '_' +  setObj.name;
 
-	setObj.visible = true;	// ƒtƒHƒ‹ƒ_‚ð•\Ž¦
+	setObj.visible = true;	// ãƒ•ã‚©ãƒ«ãƒ€ã‚’è¡¨ç¤º
 	outputImage( __doc, fileName );
-	setObj.visible = false;	// ƒtƒHƒ‹ƒ_‚ð”ñ•\Ž¦
+	setObj.visible = false;	// ãƒ•ã‚©ãƒ«ãƒ€ã‚’éžè¡¨ç¤º
 }
 ////////////////////////////////////////////////////////////////
-// ‰æ‘œo—Í
+// ç”»åƒå‡ºåŠ›
 function outputImage( doc, fileName ){
-	var opt;		// •Û‘¶ƒIƒvƒVƒ‡ƒ“
+	var opt;		// ä¿å­˜ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 	var fileObj;
 
 	opt = setSaveOption( OUTPUT_FORMAT );
@@ -101,7 +101,7 @@ function outputImage( doc, fileName ){
 	doc.saveAs( fileObj, opt, true, Extension.LOWERCASE );
 }
 ////////////////////////////////////////////////////////////////
-// •Û‘¶ƒIƒvƒVƒ‡ƒ“
+// ä¿å­˜ã‚ªãƒ—ã‚·ãƒ§ãƒ³
 // http://www.openspc2.org/book/PhotoshopCS2/
 function setSaveOption( format ){
 	var opt;
