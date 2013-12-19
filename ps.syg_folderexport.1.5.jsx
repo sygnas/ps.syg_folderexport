@@ -1,9 +1,12 @@
 /*
-現在表示されているレイヤーを、レイヤーごとに画像保存する。
+トップのレイヤーフォルダ（レイヤーセット）ごとに画像を保存する
 
-・保存ファイル名は「元ファイル名_レイヤーフォルダ名_レイヤー名」となる。
+・保存ファイル名は「元ファイル名_レイヤーフォルダ名」となる。
 ・同じファイル名が存在する場合は上書きされる。
-・レイヤーフォルダの中のレイヤーフォルダも再帰的に処理される。
+・不可視状態のフォルダは保存されない。
+
+・フォルダ内のレイヤー、フォルダの状態は変更されない。
+・第一階層に普通のレイヤーが表示されている場合は、それも表示したまま保存される。
 
 ・各フォーマットの保存オプションは「setSaveOption()」で行っているので、
 　詳細な指定をしたい場合はそこで。
@@ -17,7 +20,10 @@
 // ■出力先
 // Windowsと Macintoshで記述方式が違うので、詳細は下記を参照。
 // http://www.openspc2.org/book/PhotoshopCS/intro/009/index.html
-var OUTPUT_DIR = 'c:\\';
+var OUTPUT_DIR = 'C:\\Users\\dada\\';
+
+// ■無視するフォルダ名の接頭辞
+var THROW_NAME = '<>';
 
 // ■保存形式
 // PSD PNG JPG BMP から選ぶ。
@@ -27,8 +33,9 @@ var OUTPUT_FORMAT = "PNG";
 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
 // ■グローバル変数・定数
 // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+
 var __doc = activeDocument;
-var __layerList = new Array();	// レイヤー、レイヤーフォルダリスト
+var __setList = new Array();	// 第一階層フォルダリスト
 var __baseName;
 
 // 書き出し開始
@@ -46,57 +53,42 @@ function startOutput(){
 
 	preferences.rulerUnits = Units.PIXELS;	// 単位をピクセルに
 	__baseName = __doc.name.split('.')[0];	// ベースファイル名取得
+	makeSetList();							// フォルダ一覧を作成
 
-	// レイヤー一覧を作成
-	makeLayerList( __doc, __baseName );
-
-	// 一覧から一個ずつ書き出す。
-	for( i=0; i<__layerList.length; i++ ){
-		outputLayer( __layerList[i] );
+	// セット一覧から一個ずつ書き出す。
+	for( i=0; i<__setList.length; i++ ){
+		outputSet( __setList[i] );
 	}
 	// 可視状態に戻す
-	for( i=0; i<__layerList.length; i++ ){
-		__layerList[i].layer.visible = true;
+	for( i=0; i<__setList.length; i++ ){
+		__setList[i].visible = true;
 	}
 }
 ////////////////////////////////////////////////////////////////
-// レイヤー一覧を作成
-function makeLayerList( parent, name ){
-	var i, q;
-	var layerName;
+// セット一覧を作成
+function makeSetList(){
+	var i;
+	var setName;
 
-	// 通常レイヤー一覧
-	for( i=0; i<parent.artLayers.length; i++ ){
-		// 通常のレイヤー以外は無視
-		if( parent.artLayers[i].kind != LayerKind.NORMAL &&
-		     parent.artLayers[i].kind != LayerKind.SMARTOBJECT &&
-			parent.artLayers[i].kind != LayerKind.TEXT ){ continue; }
+	for( i=0; i<__doc.layerSets.length; i++ ){
+		// 不可視状態になっているものは無視
+		if( __doc.layerSets[i].visible == false ) continue;
+        
+        // 無視接頭辞の付いている物は無視
+        if( __doc.layerSets[i].name.indexOf(THROW_NAME) == 0 ) continue;
 
-		// 可視状態のみ対象
-		if( parent.artLayers[i].visible ){
-			parent.artLayers[i].visible = false;
-			layerName = name + "_" + parent.artLayers[i].name;
-			__layerList.push({ "layer":parent.artLayers[i], "name":layerName });
-		}
+		__setList.push( __doc.layerSets[i] );
+		__doc.layerSets[i].visible = false;	// 不可視にする
 	}
-	// レイヤーフォルダ
-	/*
-	for( i=0; i<parent.layerSets.length; i++ ){
-		// 可視状態のフォルダを再帰的に処理
-		if( parent.layerSets[i].visible ){
-			layerName = name + "_" + parent.layerSets[i].name;
-			makeLayerList( parent.layerSets[i], layerName );
-		}
-	}
-	*/
 }
 ////////////////////////////////////////////////////////////////
-// レイヤー単位で出力
-function outputLayer( obj ){
-	var fileName = OUTPUT_DIR + obj.name;
-	obj.layer.visible = true;	// レイヤーを表示
+// セット単位で差分を出力
+function outputSet( setObj ){
+	var fileName = OUTPUT_DIR +__baseName + '_' +  setObj.name;
+
+	setObj.visible = true;	// フォルダを表示
 	outputImage( __doc, fileName );
-	obj.layer.visible = false;	// レイヤーを非表示
+	setObj.visible = false;	// フォルダを非表示
 }
 ////////////////////////////////////////////////////////////////
 // 画像出力

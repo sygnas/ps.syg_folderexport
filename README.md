@@ -5,7 +5,7 @@ PS SygFolderExport
 
 ##VERSION
 
-2013.06.18 ver1.6
+2013.06.18 ver1.5
 
 * 公開
 
